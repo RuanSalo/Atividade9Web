@@ -54,6 +54,10 @@
             <button class="botao-facil">Fácil</button>
             <button class="botao-medio">Médio</button>
             <button class="botao-dificil">Difícil</button>
+            <button class="botao-cadastrar">Cadastrar Palavra</button>
+          </div>
+          <div>
+            
           </div>
         </div>
         <div id="jogo">
@@ -71,7 +75,7 @@
             </div>
             <div class="dica">
               Dica:
-              <span class="conteudo">blablabla</span>
+              <span class="pista">blablabla</span>
             </div>
             <div class="teclado">
             <button class="botao-a">A</button>
@@ -100,6 +104,27 @@
             <button class="botao-a">A</button>
             <button class="botao-a">A</button>
             <button class="botao-a">A</button>
+          </div>
+        </div>
+        <div id="cadastro">
+          <h2>Cadastrar Palavra</h2>
+          <div>
+            <form id="formulario">
+              <input type="radio" id="facil" name="dificuldade" value="facil">
+              <label for="facil">Fácil</label>
+              <input type="radio" id="medio" name="dificuldade" value="medio">
+              <label for="medio">Médio</label>
+              <input type="radio" id="dificil" name="dificuldade" value="dificil">
+              <label for="dificil">Difícil</label>
+
+              <label for="palavra">Palavra:</label>
+              <input type="text" name="palavra" value="">
+              <label for="dica">Dica:</label>
+              <input type="text" name="dica" value="">
+
+              <button type="submit">Cadastrar</button>
+
+            </form>
           </div>
         </div>
       </div>

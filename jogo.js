@@ -3,15 +3,17 @@ let jogo;
 const elementos = {
   telaInicial: document.getElementById('inicial'),
   telaJogo: document.getElementById('jogo'),
+  telaCadastro: document.getElementById('cadastro'),
   telaMensagem: document.querySelector('.mensagem'),
   textoMensagem: document.querySelector('.mensagem .texto'),
   teclado: document.querySelector('.teclado'),
   palavra: document.querySelector('.palavra'),
-  dica: document.querySelector('.dica .conteudo'),
+  dica: document.querySelector('.dica .pista'),
   botoes: {
     facil: document.querySelector('.botao-facil'),
     medio: document.querySelector('.botao-medio'),
     dificil: document.querySelector('.botao-dificil'),
+    cadastrar: document.querySelector('.botao-cadastrar'),
     reiniciar: document.querySelector('.reiniciar'),
   },
   boneco: [
@@ -78,6 +80,7 @@ const novoJogo = () => {
   };
 
   elementos.telaInicial.style.display = 'flex';
+  elementos.telaCadastro.style.display = 'none';
   elementos.telaJogo.style.display = 'none';
   elementos.telaMensagem.style.display = 'none';
   elementos.telaMensagem.classList.remove('mensagem-vitoria');
@@ -145,7 +148,7 @@ const sortearPalavra = () => {
 
 const mostrarPalavra = () => {
   elementos.palavra.textContent = '';
-  elementos.dica.innerHTML = palavra.dica;
+  elementos.dica.innerHTML = jogo.palavra.dica;
   for (let i = 0; i < jogo.acertos.length; i++) {
     const letra = jogo.acertos[i].toUpperCase();
     elementos.palavra.innerHTML += `<div class="letra-${i}">${letra}</div>`;
@@ -161,11 +164,17 @@ const iniciarJogo = dificuldade => {
   mostrarPalavra();
 };
 
+const cadastrar = () =>{
+  elementos.telaInicial.style.display = 'none';
+  elementos.telaCadastro.style.display = 'flex';
+}
+
 const replace = (str, i, newChar) => str.substring(0, i) + newChar + str.substring(i + 1);
 
 elementos.botoes.facil.addEventListener('click', () => iniciarJogo('facil'));
 elementos.botoes.medio.addEventListener('click', () => iniciarJogo('medio'));
 elementos.botoes.dificil.addEventListener('click', () => iniciarJogo('dificil'));
+elementos.botoes.cadastrar.addEventListener('click', () =>cadastrar());
 
 elementos.botoes.reiniciar.addEventListener('click', () => novoJogo());
 
