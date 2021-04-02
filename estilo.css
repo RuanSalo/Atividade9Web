@@ -183,16 +183,15 @@ button:hover {
 }
 
 #formulario{
-  display: flex;
+  display: block;
   align-items: flex-end;
+  border-radius: 10px;
 }
 
 #formulario > *{
-  margin: 0 5px;
-  font-size: 40px;
-  text-align: center;
-  height: 40px;
-  width: 40px;
+  padding: 10px;
+  font-size: x-large;
+  background-color: #f6f5f555;
 }
 
 .resposta{
