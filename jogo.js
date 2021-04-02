@@ -10,9 +10,19 @@ const elementos = {
   palavra: document.querySelector('.palavra'),
   dica: document.querySelector('.dica .pista'),
   formulario: {
-    facil: document.getElementById('radioFacil'),
-    medio: document.getElementById('radioMedio'),
-    dificil: document.getElementById('radioDificil'),
+    dificuldades: document.querySelectorAll('[name="dificuldade"]'),
+    dificuldadeSelecionada: function () {
+      for (const dificuldade of this.dificuldades) {
+        if (dificuldade.checked) {
+          return dificuldade.value;
+        }
+      }
+    },
+    limparRadios: function () {
+      for (const dificuldade of this.dificuldades) {
+          elementos.formulario[dificuldade].checked = false;
+      }
+    },
     palavra: document.getElementById('palavraCadastro'),
     dica: document.getElementById('dicaCadastro'),
     botaoCadastro: document.getElementById('botaoCadastro'),
@@ -61,7 +71,7 @@ const palavras = {
   ],
   dificil: [
     { valor: 'concepção', dica: 'ação ou efeito de gerar (ou ser gerado) um ser vivo' },
-    { valor: '´plenitude', dica: 'estado do que é inteiro, completo; totalidade, integridade' },
+    { valor: 'plenitude', dica: 'estado do que é inteiro, completo; totalidade, integridade' },
     { valor: 'essencial', dica: 'que constitui o mais básico ou o mais importante em algo' },
     { valor: 'hipócrita', dica: 'é o ato de fingir ter crenças, virtudes, ideias e sentimentos que a pessoa na verdade não possui' },
     { valor: 'corolário', dica: 'é uma afirmação deduzida de uma verdade já demonstrada' },
@@ -209,22 +219,20 @@ const abrirCadastro = () => {
   elementos.telaInicial.style.display = 'none';
   elementos.telaCadastro.style.display = 'block';
 
-  elementos.formulario.facil.checked = false;
-  elementos.formulario.medio.checked = false;
-  elementos.formulario.dificil.checked = false;
+  elementos.formulario.limparRadios;
+
   elementos.formulario.palavra.textContent = '';
   elementos.formulario.dica.textContent = '';
 
-  elementos.formulario.botaoCadastro.addEventListener('click', e => {
+  elementos.formulario.botaoCadastro.addEventListener('submit', e => {
     e.preventDefault();
 
-    if (elementos.formulario.facil.checked) {
-      console.log('facil');
-    } else if (elementos.formulario.medio.checked) {
-      console.log('medio');
-    } else if (elementos.formulario.dificil.checked) {
-      console.log('dificil');
-    }
+    const dificuldade = elementos.formulario.dificuldadeSelecionada();
+
+    palavras[dificuldade].push({
+      valor: elementos.formulario.palavra.value,
+      dica: elementos.formulario.dica.value,
+    });
   });
 };
 
