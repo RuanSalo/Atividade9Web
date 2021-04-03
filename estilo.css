@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #e3c4a8;
-  font-family: "Rye", cursive;
+  font-family: 'Rye', cursive;
   color: #33313b;
   text-shadow: 2px 2px 8px #f6f5f5;
 }
@@ -23,8 +23,8 @@ body {
 }
 
 .container::after {
-  content: "";
-  background: url("fundo.jpg");
+  content: '';
+  background: url('fundo.jpg');
   background-size: 100%;
   opacity: 0.5;
   top: 0;
@@ -133,9 +133,8 @@ h2 {
 button {
   background-color: #4592af;
   color: #33313b;
-  text-shadow: 2px 2px 8px #f6f5f5, -2px -2px 8px #f6f5f5, 02px 2px 8px #f6f5f5,
-    2px -2px 8px #f6f5f5;
-  font-family: "Rye", cursive;
+  text-shadow: 2px 2px 8px #f6f5f5, -2px -2px 8px #f6f5f5, 02px 2px 8px #f6f5f5, 2px -2px 8px #f6f5f5;
+  font-family: 'Rye', cursive;
   border-radius: 10px;
   cursor: pointer;
   outline: none;
@@ -182,19 +181,19 @@ button:hover {
   height: 70px;
 }
 
-#formulario{
+#formulario {
   display: block;
   align-items: flex-end;
   border-radius: 10px;
 }
 
-#formulario > *{
+#formulario > * {
   padding: 10px;
   font-size: x-large;
   background-color: #f6f5f555;
 }
 
-.resposta{
+.resposta {
   position: relative;
 }
 
@@ -212,7 +211,7 @@ button:hover {
   width: 70px;
 }
 
-.dica{
+.dica {
   position: absolute;
   bottom: 10px;
   left: 10px;

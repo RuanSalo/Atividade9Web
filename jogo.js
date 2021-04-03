@@ -20,7 +20,7 @@ const elementos = {
     },
     limparRadios: function () {
       for (const dificuldade of this.dificuldades) {
-          elementos.formulario[dificuldade].checked = false;
+        dificuldade.checked = false;
       }
     },
     palavra: document.getElementById('palavraCadastro'),
@@ -219,7 +219,7 @@ const abrirCadastro = () => {
   elementos.telaInicial.style.display = 'none';
   elementos.telaCadastro.style.display = 'block';
 
-  elementos.formulario.limparRadios;
+  elementos.formulario.limparRadios();
 
   elementos.formulario.palavra.textContent = '';
   elementos.formulario.dica.textContent = '';
@@ -228,6 +228,7 @@ const abrirCadastro = () => {
     e.preventDefault();
 
     const dificuldade = elementos.formulario.dificuldadeSelecionada();
+    console.log(dificuldade);
 
     palavras[dificuldade].push({
       valor: elementos.formulario.palavra.value,
