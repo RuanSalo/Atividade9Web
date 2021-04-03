@@ -10,7 +10,11 @@ const elementos = {
   palavra: document.querySelector('.palavra'),
   dica: document.querySelector('.dica .pista'),
   formulario: {
+    formulario: document.querySelector('#formulario'),
     dificuldades: document.querySelectorAll('[name="dificuldade"]'),
+    palavra: document.getElementById('palavraCadastro'),
+    dica: document.getElementById('dicaCadastro'),
+    botaoCadastro: document.getElementById('botaoCadastro'),
     dificuldadeSelecionada: function () {
       for (const dificuldade of this.dificuldades) {
         if (dificuldade.checked) {
@@ -23,9 +27,6 @@ const elementos = {
         dificuldade.checked = false;
       }
     },
-    palavra: document.getElementById('palavraCadastro'),
-    dica: document.getElementById('dicaCadastro'),
-    botaoCadastro: document.getElementById('botaoCadastro'),
   },
   botoes: {
     facil: document.querySelector('.botao-facil'),
@@ -224,7 +225,7 @@ const abrirCadastro = () => {
   elementos.formulario.palavra.textContent = '';
   elementos.formulario.dica.textContent = '';
 
-  elementos.formulario.botaoCadastro.addEventListener('submit', e => {
+  elementos.formulario.formulario.addEventListener('submit', e => {
     e.preventDefault();
 
     const dificuldade = elementos.formulario.dificuldadeSelecionada();
