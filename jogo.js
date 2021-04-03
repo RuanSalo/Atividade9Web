@@ -222,19 +222,19 @@ const abrirCadastro = () => {
 
   elementos.formulario.limparRadios();
 
-  elementos.formulario.palavra.textContent = '';
-  elementos.formulario.dica.textContent = '';
+  elementos.formulario.palavra.value = '';
+  elementos.formulario.dica.value = '';
 
   elementos.formulario.formulario.addEventListener('submit', e => {
     e.preventDefault();
 
     const dificuldade = elementos.formulario.dificuldadeSelecionada();
-    console.log(dificuldade);
 
     palavras[dificuldade].push({
       valor: elementos.formulario.palavra.value,
       dica: elementos.formulario.dica.value,
     });
+    novoJogo();
   });
 };
 
